@@ -16,7 +16,7 @@ define("Path" ,'App\Http\Controllers');
 
 
 Route::get('/', Path.'\PagesController@index');
-
 Route::get('/about',Path.'\PagesController@about');
-
 Route::get('/services',Path.'\PagesController@services');
+
+Route::resource('posts',Path.'\PostsController');
