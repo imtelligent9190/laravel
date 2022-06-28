@@ -12,12 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+define("Path" ,'App\Http\Controllers');
 
-$controlers = 'App\Http\Controllers';
 
+Route::get('/', Path.'\PagesController@index');
 
-Route::get('/', $controlers.'\PagesController@index');
+Route::get('/about',Path.'\PagesController@about');
 
-Route::get('about',$controlers.'\PagesController@about');
-
-Route::get('services',$controlers.'\PagesController@services');
+Route::get('/services',Path.'\PagesController@services');
