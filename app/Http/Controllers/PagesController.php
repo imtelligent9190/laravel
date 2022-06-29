@@ -11,6 +11,7 @@ class PagesController extends Controller
         // return view('pages.index',compact('title'));
         return view('pages.index')->with('key',$title);
     }
+    
     public function about(){
         $title = "About";
         return view('pages.about')->with('key',$title);;
