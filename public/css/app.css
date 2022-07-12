@@ -1,11 +1,15 @@
 body{
     position: relative;
 }
+
 #navbar{
     background-color: black;
     color: white;
     font-size: large;
     margin-bottom: 5px;
+}
+#navbar a:hover{
+    color: gray;
 }
 #navbar a{
     padding-left: 4%;
@@ -15,14 +19,6 @@ body{
     padding-left: 2%;
     padding-right: 2%;
     
-}
-#navbar li:hover{
-    
-    background-color: gray;
-    
-}
-#navbar a:hover{
-    color: white;
 }
 
 footer{
@@ -42,13 +38,14 @@ footer p{
     margin-bottom: 5px;
 }
 
-/* #pag a{
-    background-color: black;
+#pag a{
+    color: black;
+    box-shadow: none;
+}
+#pag .page-item.active .page-link {
+    z-index: 1;
     color: white;
-} */
-
-#pag>li.active>.page-link {
-    background: red;
-    border-color: pink;
-    color: #fff;
+    background-color: black;
+    border-color: black;
+    
 }
