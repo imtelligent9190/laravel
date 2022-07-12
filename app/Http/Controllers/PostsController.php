@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -13,7 +15,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        // $posts = DB::select('SELECT * FROM posts ORDER BY created_at desc');
+        // $posts = Post::orderBy('created_at','desc')->take(1)->get();
+        $posts = Post::orderBy('created_at','desc')->paginate(1);
+        return view('posts.index')->with('posts',$posts);
     }
 
     /**
@@ -45,7 +51,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show')->with('post',$post);
     }
 
     /**

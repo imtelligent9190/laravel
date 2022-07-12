@@ -1,26 +1,27 @@
 body{
     position: relative;
 }
-nav{
+#navbar{
     background-color: black;
     color: white;
     font-size: large;
+    margin-bottom: 5px;
 }
-nav a{
+#navbar a{
     padding-left: 4%;
     
 }
-nav li{
+#navbar li{
     padding-left: 2%;
     padding-right: 2%;
     
 }
-nav li:hover{
+#navbar li:hover{
     
     background-color: gray;
     
 }
-nav a:hover{
+#navbar a:hover{
     color: white;
 }
 
@@ -39,4 +40,15 @@ footer{
 footer p{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+/* #pag a{
+    background-color: black;
+    color: white;
+} */
+
+#pag>li.active>.page-link {
+    background: red;
+    border-color: pink;
+    color: #fff;
 }
