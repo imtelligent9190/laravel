@@ -1,7 +1,10 @@
 body{
     position: relative;
 }
-
+h3 :hover{
+    text-decoration: none;
+    color: black;
+}
 #navbar{
     background-color: black;
     color: white;
@@ -18,6 +21,10 @@ body{
 #navbar li{
     padding-left: 2%;
     padding-right: 2%;
+    
+}
+#navbar button{
+    margin-left: 5px;
     
 }
 
@@ -51,4 +58,7 @@ footer p{
 }
 textarea {
     resize: none;
+}
+.nav-left{
+    text-align: left;
 }
