@@ -32,7 +32,7 @@
 <nav id="navbar" class="navbar navbar-expand-sm">
   
   <a class="navbar-brand" href="/">
-    <img src="{{asset('logo/logo.jpg')}}" width="60" height="60" alt="logo">
+    <img src="{{asset('logo/logo.jpg')}}" width="40" height="40" alt="logo">
   </a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
