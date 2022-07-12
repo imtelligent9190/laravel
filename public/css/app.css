@@ -49,3 +49,6 @@ footer p{
     border-color: black;
     
 }
+textarea {
+    resize: none;
+}
