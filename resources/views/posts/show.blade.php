@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="/posts" class="btn btn-dark btn-dg">Go Back</a>
+    <button onclick="history.back()" class="btn btn-dark btn-dg">Go Back</button>
     <h1>{{$post->title}}</h1>
 
     <div>

@@ -61,13 +61,24 @@
         <button type="button" class="btn btn-outline-secondary" onclick="location.href='{{ route('register') }}'">Register</button>
       @endif
     @else
-    
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
-        <li class="nav-item active">
-          <a class="nav-link" href="/posts/create">Create_Post</a>
-          <a  class="nav-link" href=""onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-        </li>
-      </ul>
+    {{-- <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">
+      <button onclick="myFunction()" class="dropbtn btn btn-outline-light">Account</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a class="nav-link" href="/home">Dashboard</a>
+        <a  class="nav-link" href=""onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+      </div>
+    </div> --}}
+
+    <div class="dropdown">
+      <button class="dropbtn btn btn-outline-light">Account</button>
+      <div class="dropdown-content">
+        <a class="nav-link" href="/home">Dashboard</a>
+        <a  class="nav-link" href=""onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+      </div>
+    </div>
+      
       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
           @csrf
       </form>
