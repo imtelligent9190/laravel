@@ -14,8 +14,18 @@
                         <table  class="table table-dark">
                             @foreach ($posts as $post)
                                 <tr>
-                                    <th><a href="posts/{{$post->id}}">{{$post->title}}</a></th>
-                                    <th><a href="/posts/{{$post->id}}/edit" class="btn btn-light">Edit</a></th>
+                                    <th>
+                                        <a {{-- href="posts/{{$post->id}}" --}}>{{$post->title}}</a>
+                                    </th>
+                                    <th>
+                                        <a href="/posts/{{$post->id}}/edit" class="btn btn-light">Edit</a>
+                                    </th>
+                                    <th>
+                                        {!! Form::open(['action'=>['App\Http\Controllers\PostsController@destroy',$post->id],'method'=>'DELETE']) !!}
+                                        {!! Form::hidden('dashboard', true) !!}
+                                        {!! Form::submit('DELETE', ['class'=>'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
+                                    </th>
                                 </tr>
                             @endforeach
                         </table>
