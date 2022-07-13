@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,6 @@ Route::get('/about',Path.'\PagesController@about');
 Route::get('/services',Path.'\PagesController@services');
 
 Route::resource('posts',Path.'\PostsController');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
