@@ -52,35 +52,33 @@
     </ul>
     
     <div class="form-inline my-2 my-lg-0">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
-      <li class="nav-item active">
-        <a class="nav-link" href="/posts/create">Create_Post</a>
-      </li>
-    </ul>
-    @if (Route::has('login'))  
-      <button type="button" class="btn btn-outline-light" onclick="location.href='{{ route('login') }}'">Login</button>
-    @endif
-    @if (Route::has('register'))
-      <button type="button" class="btn btn-outline-secondary" onclick="location.href='{{ route('register') }}'">Register</button>
-    @endif
-    </div>
     
+    @guest
+      @if (Route::has('login'))  
+        <button type="button" class="btn btn-outline-light" onclick="location.href='{{ route('login') }}'">Login</button>
+      @endif
+      @if (Route::has('register'))
+        <button type="button" class="btn btn-outline-secondary" onclick="location.href='{{ route('register') }}'">Register</button>
+      @endif
+    @else
+    
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">  
+        <li class="nav-item active">
+          <a class="nav-link" href="/posts/create">Create_Post</a>
+          <a  class="nav-link" href=""onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+        </li>
+      </ul>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+      </form>
+    @endguest
+    </div>
   </div>
+  
 </nav>
 
 {{-- @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
