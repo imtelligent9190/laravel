@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>['index','show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,11 +26,13 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
         // $posts = DB::select('SELECT * FROM posts ORDER BY created_at desc');
         // $posts = Post::orderBy('created_at','desc')->take(1)->get();
+
+        $posts = Post::all();
         $posts = Post::orderBy('created_at','desc')->paginate(10);
         return view('posts.index')->with('posts',$posts);
+        
     }
 
     /**
@@ -51,7 +64,7 @@ class PostsController extends Controller
         $post->user_id = auth()->user()->id;
         $post->save();
 
-        return redirect('/posts')->with('success','Post Created');
+        return redirect('/home')->with('success','Post Created');
     }
 
     /**
@@ -75,7 +88,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('posts.edit')->with('post',$post);
+        //Correct user?
+        if(auth()->user()->id == $post->user_id){
+            return view('posts.edit')->with('post',$post);
+        }
+        return redirect('/posts')->with('error','Access Denied');
     }
 
     /**
@@ -113,6 +130,9 @@ class PostsController extends Controller
         if($request->input('dashboard')){
             return redirect('/home')->with('success','Post Deleted');
         }
-        return redirect('/posts')->with('success','Post Deleted');
+        if(auth()->user()->id == $post->user_id){
+            return redirect('/posts')->with('success','Post Deleted');
+        }
+        return redirect('/posts')->with('error','Access Denied');
     }
 }

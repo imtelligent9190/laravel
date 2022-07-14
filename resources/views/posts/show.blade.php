@@ -9,9 +9,12 @@
     </div>
     <hr>
     <small>Written on {{$post->created_at}}</small>
-    <br>
-    <a href="/posts/{{$post->id}}/edit" class="btn btn-secondary">Edit</a>
-    {!! Form::open(['action'=>['App\Http\Controllers\PostsController@destroy',$post->id],'method'=>'DELETE','class'=>'float-right']) !!}
-    {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
-    {!! Form::close() !!}
+    @if (!Auth::guest() && Auth::user()->id == $post->user_id)
+        <hr>
+        <a href="/posts/{{$post->id}}/edit" class="btn btn-secondary">Edit</a>
+        {!! Form::open(['action'=>['App\Http\Controllers\PostsController@destroy',$post->id],'method'=>'DELETE','class'=>'float-right']) !!}
+        {!! Form::submit('Delete', ['class'=>'btn btn-danger']) !!}
+        {!! Form::close() !!}
+    @endif
+    
 @endsection

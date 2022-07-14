@@ -11,7 +11,7 @@
                     <a href="/posts/create" class="btn btn-dark">Create New Post</a>
                     <h3>Your Posts:</h3>
                     @if (count($posts)>0)
-                        <table  class="table table-dark">
+                        <table  class="table table-bordered table-secondary">
                             @foreach ($posts as $post)
                                 <tr>
                                     <th>
