@@ -3,8 +3,6 @@
 @section('content')
     <button onclick="history.back()" class="btn btn-dark btn-dg">Go Back</button>
     <h1>{{$post->title}}</h1>
-    <img style="width: 20%" src="/storage/cover_images/{{$post->cover_image}}">
-    <br><br>
     <div>
         {{$post->body}}
     </div>
