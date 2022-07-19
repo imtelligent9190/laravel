@@ -4,4 +4,4 @@
 Blog made in laravel<br>
 you can see it running at: soon
 <br>
-<b>There is this strange error that you need to click register first, and only then css will "show up"</b><br>
+<b>There is this strange error that you need to click Login or Register in teh upper right corner first, and only then css will "show up"</b><br>
