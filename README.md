@@ -3,5 +3,4 @@
 
 Blog made in laravel<br>
 you can see it running at: 
-<br>
-<b>There is this strange error that you need to click Login or Register in the upper right corner first, and only then css will "show up"</b><br>
+
